@@ -16,6 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self initNetworkCommunication];
+    _lightToggle.selectedSegmentIndex = 1;
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -25,5 +29,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initNetworkCommunication {
+    CFReadStreamRef readStream;
+    CFWriteStreamRef writeStream;
+    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"192.168.0.112", 7777, &readStream, &writeStream);
+    _inputStream = (NSInputStream *)CFBridgingRelease(readStream);
+    _outputStream = (NSOutputStream *)CFBridgingRelease(writeStream);
+    
+    [_inputStream setDelegate:self];
+    [_outputStream setDelegate:self];
+    
+    [_inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [_outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
+    [_inputStream open];
+    [_outputStream open];
+    
+}
+
+- (IBAction)ToggleLight:(id)sender {
+    
+    UISegmentedControl *button = ((UISegmentedControl*)sender);
+    long tag = button.tag;
+    
+    NSString *response  = [NSString stringWithFormat:@"P%ld%@", tag , button.selectedSegmentIndex?@"L" : @"H"];
+    NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+    [_outputStream write:[data bytes] maxLength:[data length]];
+    
+}
+
 
 @end
+
