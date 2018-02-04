@@ -52,7 +52,7 @@
     UISegmentedControl *button = ((UISegmentedControl*)sender);
     long tag = button.tag;
     
-    NSString *response  = [NSString stringWithFormat:@"P%ld%@", tag , button.selectedSegmentIndex?@"L" : @"H"];
+    NSString *response  = [NSString stringWithFormat:@"Motor%ld%@", tag , button.selectedSegmentIndex?@"UP" : @"DOWN"];
     NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
     [_outputStream write:[data bytes] maxLength:[data length]];
     
