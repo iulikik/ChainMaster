@@ -32,7 +32,7 @@
 - (void)initNetworkCommunication {
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"192.168.0.112", 7777, &readStream, &writeStream);
+    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"192.168.0.38", 7777, &readStream, &writeStream);
     _inputStream = (NSInputStream *)CFBridgingRelease(readStream);
     _outputStream = (NSOutputStream *)CFBridgingRelease(writeStream);
     
