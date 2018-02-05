@@ -22,6 +22,9 @@
                                 <rect key="frame" x="164" y="275" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="GO"/>
+                                <connections>
+                                    <action selector="goButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aVP-5g-RYJ"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="CDw-Xt-fzd">
                                 <rect key="frame" x="100" y="86" width="174" height="29"/>
@@ -82,7 +85,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="hFq-US-Jtz"/>
                     <connections>
+                        <outlet property="goButton" destination="Jw4-gZ-Gzv" id="wMG-g0-wIF"/>
                         <outlet property="lightToggle" destination="okl-uj-eyX" id="Dsf-Sf-XCM"/>
                     </connections>
                 </viewController>

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *goButton;
 
 @end
 
@@ -18,7 +19,6 @@
     [super viewDidLoad];
     
     [self initNetworkCommunication];
-    _lightToggle.selectedSegmentIndex = 1;
     
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -51,13 +51,36 @@
     
     UISegmentedControl *button = ((UISegmentedControl*)sender);
     long tag = button.tag;
+    NSString *command = @"STOP";
     
-    NSString *response  = [NSString stringWithFormat:@"Motor%ld%@", tag , button.selectedSegmentIndex?@"UP" : @"DOWN"];
+    if(button.selectedSegmentIndex == 0)
+    {
+        command = (@"UP");
+    }
+    else if(button.selectedSegmentIndex == 1)
+    {
+        command = (@"STOP");
+    }
+    else if(button.selectedSegmentIndex == 2)
+    {
+        command = (@"DOWN");
+    }
+    
+    
+    NSString *response  = [NSString stringWithFormat:@"Motor%ld%@", tag , command];
+    
+    
     NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
     [_outputStream write:[data bytes] maxLength:[data length]];
     
+    NSLog(@"%@", response);
+    
+}
+
+- (IBAction)goButtonPressed:(id)sender {
+    
+    NSLog(@"GO button pressed");
 }
 
 
 @end
-
