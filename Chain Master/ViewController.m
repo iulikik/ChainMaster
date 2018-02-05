@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *goButton;
 
@@ -66,21 +67,16 @@
         command = (@"DOWN");
     }
     
-    
     NSString *response  = [NSString stringWithFormat:@"Motor%ld%@", tag , command];
-    
     
     NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
     [_outputStream write:[data bytes] maxLength:[data length]];
     
     NSLog(@"%@", response);
-    
 }
 
 - (IBAction)goButtonPressed:(id)sender {
-    
     NSLog(@"GO button pressed");
 }
-
 
 @end
