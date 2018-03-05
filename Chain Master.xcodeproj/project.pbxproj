@@ -16,6 +16,7 @@
 		49A79DBB20224CE9004E873F /* Chain_MasterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A79DBA20224CE9004E873F /* Chain_MasterTests.m */; };
 		49A79DC620224CE9004E873F /* Chain_MasterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A79DC520224CE9004E873F /* Chain_MasterUITests.m */; };
 		49E641CD20227A0100BD5611 /* Script.sh in Resources */ = {isa = PBXBuildFile; fileRef = 49E641CC20227A0100BD5611 /* Script.sh */; };
+		49F1F69D204DE87E00CEF88A /* Notes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 49F1F69C204DE87E00CEF88A /* Notes.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		499C272C2040EE2C0071907C /* notepad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = notepad.m; sourceTree = "<group>"; };
 		49A79D9E20224CE9004E873F /* Chain Master.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chain Master.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A79DA120224CE9004E873F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49A79DA220224CE9004E873F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 		49A79DC520224CE9004E873F /* Chain_MasterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chain_MasterUITests.m; sourceTree = "<group>"; };
 		49A79DC720224CE9004E873F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49E641CC20227A0100BD5611 /* Script.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Script.sh; sourceTree = "<group>"; };
+		49F1F69C204DE87E00CEF88A /* Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 		49A79D9520224CE9004E873F = {
 			isa = PBXGroup;
 			children = (
+				49F1F69C204DE87E00CEF88A /* Notes.rtf */,
+				499C272C2040EE2C0071907C /* notepad.m */,
 				49E641CC20227A0100BD5611 /* Script.sh */,
 				49A79DA020224CE9004E873F /* Chain Master */,
 				49A79DB920224CE9004E873F /* Chain MasterTests */,
@@ -245,6 +250,7 @@
 				49A79DAB20224CE9004E873F /* Assets.xcassets in Resources */,
 				49A79DA920224CE9004E873F /* Main.storyboard in Resources */,
 				49E641CD20227A0100BD5611 /* Script.sh in Resources */,
+				49F1F69D204DE87E00CEF88A /* Notes.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
