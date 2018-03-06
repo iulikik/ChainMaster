@@ -1,22 +1,13 @@
 #import <Foundation/Foundation.h>
-//  ViewController.m
-//  Chain Master
-//
-//  Created by IULIAN MORARI on 1/31/18.
-//  Copyright © 2018 Ik Moraru. All rights reserved.
-//
-
 #import "ViewController.h"
 
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *goButton;
-
 @property (weak, nonatomic) IBOutlet UISegmentedControl *seg1;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *seg2;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *seg3;
-
-
+@property (weak, nonatomic) IBOutlet UISegmentedControl *seg4;
 @end
 
 @implementation ViewController
@@ -27,11 +18,10 @@
     [self initNetworkCommunication];
 }
 
-
 - (void)initNetworkCommunication {
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"192.168.0.39", 7777, &readStream, &writeStream);
+    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"192.168.0.199", 7777, &readStream, &writeStream);
     _inputStream = (NSInputStream *)CFBridgingRelease(readStream);
     _outputStream = (NSOutputStream *)CFBridgingRelease(writeStream);
     
@@ -43,30 +33,7 @@
     
     [_inputStream open];
     [_outputStream open];
-    
 }
-
-//- (IBAction)ToggleLight:(id)sender {
-//
-//    UISegmentedControl *button = ((UISegmentedControl*)sender);
-//    long tag = button.tag;
-//    NSString *command = @"STOP";
-//
-//    if(button.selectedSegmentIndex == 0) {
-//        command = (@"UP");
-//    } else if(button.selectedSegmentIndex == 1) {
-//        command = (@"STOP");
-//    } else if(button.selectedSegmentIndex == 2) {
-//        command = (@"DOWN");
-//    }
-//
-//    NSString *response  = [NSString stringWithFormat:@"Motor%ld%@", tag , command];
-//
-//    NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
-//    [_outputStream write:[data bytes] maxLength:[data length]];
-//
-//    NSLog(@"%@", response);
-//}
 
 - (void)sendMovementActionToController:(UISegmentedControl *) segmentedControl {
     UISegmentedControl *button = ((UISegmentedControl*)segmentedControl);
@@ -79,10 +46,11 @@
     }
 }
 
-- (void)writeOutputStreamWithTag:(NSString *)tag command:(NSString *)command {
-    NSString *response  = [NSString stringWithFormat:@"Motor%@%@", tag , command];
+- (void)writeOutputStreamWithTag:(long)tag command:(NSString *)command {
+    NSString *response  = [NSString stringWithFormat:@"Motor%ld%@", tag , command];
     NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
     [_outputStream write:[data bytes] maxLength:[data length]];
+    NSLog(@"%@", response);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)eventt {
@@ -99,18 +67,15 @@
         [self sendMovementActionToController:_seg1];
         [self sendMovementActionToController:_seg2];
         [self sendMovementActionToController:_seg3];
+        [self sendMovementActionToController:_seg4];
     }
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self writeOutputStreamWithTag:seg1.tag command:@"STOP"];
-    [self writeOutputStreamWithTag:seg2.tag command:@"STOP"];
-    [self writeOutputStreamWithTag:seg3.tag command:@"STOP"];
-}
-
-
-- (IBAction)goButtonPressed:(id)sender {
-    NSLog(@"GO button pressed");
+    [self writeOutputStreamWithTag:_seg1.tag command:@"STOP"];
+    [self writeOutputStreamWithTag:_seg2.tag command:@"STOP"];
+    [self writeOutputStreamWithTag:_seg3.tag command:@"STOP"];
+    [self writeOutputStreamWithTag:_seg4.tag command:@"STOP"];
 }
 
 @end
