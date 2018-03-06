@@ -14,7 +14,7 @@
 @property (nonatomic, retain) NSOutputStream *outputStream;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *lightToggle;
 
-- (IBAction)ToggleLight:(id)sender;
+//- (IBAction)ToggleLight:(id)sender;
 - (IBAction)goButtonPressed:(id)sender;
 
 @end

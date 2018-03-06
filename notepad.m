@@ -180,18 +180,12 @@
     long tag = button.tag;
     NSString *command = @"STOP";
     
-    if(button.selectedSegmentIndex == 0)
-    {
-        command = (@"UP");
-    }
-    else if(button.selectedSegmentIndex == 1)
-    {
-        command = (@"STOP");
-    }
-    else if(button.selectedSegmentIndex == 2)
-    {
-        command = (@"DOWN");
-    }
+    if(button.selectedSegmentIndex == 0)    {
+        command = (@"UP");    }
+    else if(button.selectedSegmentIndex == 1)    {
+        command = (@"STOP");    }
+    else if(button.selectedSegmentIndex == 2)    {
+        command = (@"DOWN");    }
     
     NSString *response  = [NSString stringWithFormat:@"Motor%ld%@", tag , command];
     
@@ -206,4 +200,5 @@
 }
 
 @end
+
 

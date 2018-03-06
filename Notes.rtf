@@ -2,12 +2,12 @@
 {\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fnil\fcharset0 AndaleMono;\f2\fnil\fcharset0 Monaco;
 \f3\fnil\fcharset0 Menlo-Regular;\f4\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;\red44\green44\blue44;\red0\green0\blue0;\red0\green0\blue0;
-\red47\green255\blue18;\red0\green0\blue0;\red255\green255\blue255;\red38\green38\blue38;\red225\green226\blue231;
-\red31\green32\blue41;\red20\green156\blue146;\red69\green187\blue62;\red215\green0\blue143;\red211\green35\blue46;
+\red225\green226\blue231;\red31\green32\blue41;\red20\green156\blue146;\red69\green187\blue62;\red215\green0\blue143;
+\red211\green35\blue46;\red255\green255\blue255;\red38\green38\blue38;\red47\green255\blue18;\red0\green0\blue0;
 \red46\green174\blue187;\red159\green160\blue28;\red47\green180\blue29;\red64\green11\blue217;}
 {\*\expandedcolortbl;;\cssrgb\c22745\c22745\c22745;\csgray\c0\c0;\cssrgb\c0\c0\c0;
-\cssrgb\c15686\c99608\c7843;\csgray\c0\c90000;\cssrgb\c100000\c100000\c100000;\cssrgb\c20000\c20000\c20000;\csgenericrgb\c88217\c88535\c90427;
-\csgenericrgb\c12157\c12549\c16078;\csgenericrgb\c7843\c61177\c57255;\csgenericrgb\c26985\c73392\c24249;\csgenericrgb\c84398\c0\c55980;\csgenericrgb\c82745\c13725\c18039;
+\csgenericrgb\c88217\c88535\c90427;\csgenericrgb\c12157\c12549\c16078;\csgenericrgb\c7843\c61177\c57255;\csgenericrgb\c26985\c73392\c24249;\csgenericrgb\c84398\c0\c55980;
+\csgenericrgb\c82745\c13725\c18039;\cssrgb\c100000\c100000\c100000;\cssrgb\c20000\c20000\c20000;\cssrgb\c15686\c99608\c7843;\csgray\c0\c90000;
 \cssrgb\c20198\c73241\c78251;\cssrgb\c68469\c68013\c14209;\cssrgb\c20239\c73899\c14948;\cssrgb\c32309\c18668\c88228;}
 \margl1440\margr1440\vieww9000\viewh8400\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
@@ -26,15 +26,17 @@
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf2 \
 # use this command\
-ssh-keygen -R "you server hostname or ip"\
+\
+>ssh-keygen -R "you server hostname or ip"\
 \pard\pardeftab720\partightenfactor0
 \cf2 \
 \
 # so, now lets update and upgrade our raspberry pi and install additional libraries\
-sudo apt-get update\
-sudo apt-get dist-upgrade\
-sudo apt-get rpi.gpio\
-sudo apt-get install python-twisted\
+\
+>sudo apt-get update\
+>sudo apt-get dist-upgrade\
+>sudo apt-get rpi.gpio\
+>sudo apt-get install python-twisted\
 \
 # do not forget to make our raspberry pi have a static ip address \
 \
@@ -44,268 +46,260 @@ sudo apt-get install python-twisted\
 \
 # lets create our script\
 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-
-\f1\fs24 \cf5 \cb6 \kerning1\expnd0\expndtw0 \CocoaLigature0 sudo nano /home/pi/iphoneserver.py
-\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\CocoaLigature1 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \
+>sudo nano /home/pi/iphoneserver.py\
+\
 # here\'92s the script:\
 \
-\pard\pardeftab720\partightenfactor0
-
-\f2\fs26 \cf7 \cb8 \
 \pard\tx593\pardeftab593\pardirnatural\partightenfactor0
 
-\f3\fs24 \cf9 \cb10 \kerning1\expnd0\expndtw0 from twisted.internet.protocol import Protocol, Factory
+\f3\fs24 \cf5 \cb6 \kerning1\expnd0\expndtw0 from twisted.internet.protocol import Protocol, Factory
 \f4 \cf0 \
 
-\f3 \cf9 from twisted.internet import reactor
-\f4 \cf0 \
-\
-
-\f3 \cf9 import RPi.GPIO as GPIO
+\f3 \cf5 from twisted.internet import reactor
 \f4 \cf0 \
 \
 
-\f3 \cf9 GPIO.setmode(GPIO.BCM)
+\f3 \cf5 import RPi.GPIO as GPIO
 \f4 \cf0 \
 \
 
-\f3 \cf9 pinList = [\cf11 2\cf9 , \cf11 3\cf9 , \cf11 4\cf9 , \cf11 17\cf9 , \cf11 27\cf9 , \cf11 22\cf9 , \cf11 10\cf9 , \cf11 9\cf9 ]
+\f3 \cf5 GPIO.setmode(GPIO.BCM)
 \f4 \cf0 \
 \
 
-\f3 \cf12 # loop through pins and set mode and state to 'low'
+\f3 \cf5 pinList = [\cf7 2\cf5 , \cf7 3\cf5 , \cf7 4\cf5 , \cf7 17\cf5 , \cf7 27\cf5 , \cf7 22\cf5 , \cf7 10\cf5 , \cf7 9\cf5 ]
 \f4 \cf0 \
 \
 
-\f3 \cf13 for\cf9  i \cf13 in\cf9  pinList:
-\f4 \cf0 \
-
-\f3 \cf9 GPIO.setup(i, GPIO.OUT)
-\f4 \cf0 \
-
-\f3 \cf13 for\cf9  i \cf13 in\cf9  pinList:
-\f4 \cf0 \
-
-\f3 \cf9 GPIO.output(i, GPIO.HIGH)
+\f3 \cf8 # loop through pins and set mode and state to 'low'
 \f4 \cf0 \
 \
 
-\f3 \cf9 class RaspberryLight(Protocol):
+\f3 \cf9 for\cf5  i \cf9 in\cf5  pinList:
 \f4 \cf0 \
 
-\f3 \cf9 def connectionMade(self):
+\f3 \cf5 GPIO.setup(i, GPIO.OUT)
 \f4 \cf0 \
 
-\f3 \cf12 #self.transport.write("""connected""")
+\f3 \cf9 for\cf5  i \cf9 in\cf5  pinList:
 \f4 \cf0 \
 
-\f3 \cf9 self.factory.clients.append(self)
-\f4 \cf0 \
-
-\f3 \cf9 print \cf14 "clients are "\cf9 , self.factory.clients
+\f3 \cf5 GPIO.output(i, GPIO.HIGH)
 \f4 \cf0 \
 \
 
-\f3 \cf9 def connectionLost(self, reason):
+\f3 \cf5 class RaspberryLight(Protocol):
 \f4 \cf0 \
 
-\f3 \cf9 print \cf14 "connection lost "\cf9 , self.factory.clients
+\f3 \cf5 def connectionMade(self):
 \f4 \cf0 \
 
-\f3 \cf9 self.factory.clients.remove(self)
-\f4 \cf0 \
-\
-
-\f3 \cf9 def dataReceived(self, data):
+\f3 \cf8 #self.transport.write("""connected""")
 \f4 \cf0 \
 
-\f3 \cf9 msg = \cf14 ""
-\f4 \cf0 \
-\
-
-\f3 \cf13 if\cf9  (data == \cf14 'Motor1UP'\cf9 ):        \cf12 #motor1 UP
+\f3 \cf5 self.factory.clients.append(self)
 \f4 \cf0 \
 
-\f3 \cf9 msg = \cf14 "Motor 1 UP"
-\f4 \cf0 \
-
-\f3 \cf9 GPIO.output(\cf11 2\cf9 , GPIO.LOW)
-\f4 \cf0 \
-
-\f3 \cf9 GPIO.output(\cf11 3\cf9 , GPIO.HIGH)
+\f3 \cf5 print \cf10 "clients are "\cf5 , self.factory.clients
 \f4 \cf0 \
 \
 
-\f3 \cf13 if\cf9  (data == \cf14 'Motor1STOP'\cf9 ):        \cf12 #motor1 STOP
+\f3 \cf5 def connectionLost(self, reason):
 \f4 \cf0 \
 
-\f3 \cf9 msg = \cf14 "Motor 1 Stop"
+\f3 \cf5 print \cf10 "connection lost "\cf5 , self.factory.clients
 \f4 \cf0 \
 
-\f3 \cf9 GPIO.output(\cf11 2\cf9 , GPIO.HIGH)
-\f4 \cf0 \
-
-\f3 \cf9 GPIO.output(\cf11 3\cf9 , GPIO.HIGH)
+\f3 \cf5 self.factory.clients.remove(self)
 \f4 \cf0 \
 \
 
-\f3 \cf13 if\cf9  (data == \cf14 'Motor1DOWN'\cf9 ):        \cf12 #motor1 DOWN
+\f3 \cf5 def dataReceived(self, data):
 \f4 \cf0 \
 
-\f3 \cf9 msg = \cf14 "Motor 1 Down"
-\f4 \cf0 \
-
-\f3 \cf9 GPIO.output(\cf11 2\cf9 , GPIO.HIGH)
-\f4 \cf0 \
-
-\f3 \cf9 GPIO.output(\cf11 3\cf9 , GPIO.LOW)
+\f3 \cf5 msg = \cf10 ""
 \f4 \cf0 \
 \
 
-\f3 \cf13 if\cf9  (data == \cf14 'Motor2UP'\cf9 ):
+\f3 \cf9 if\cf5  (data == \cf10 'Motor1UP'\cf5 ):        \cf8 #motor1 UP
 \f4 \cf0 \
 
-\f3 \cf9 msg = \cf14 "Motor 2 UP"
+\f3 \cf5 msg = \cf10 "Motor 1 UP"
 \f4 \cf0 \
 
-\f3 \cf9 GPIO.output(\cf11 4\cf9 , GPIO.LOW)
+\f3 \cf5 GPIO.output(\cf7 2\cf5 , GPIO.LOW)
 \f4 \cf0 \
 
-\f3 \cf9 GPIO.output(\cf11 17\cf9 , GPIO.HIGH)
-\f4 \cf0 \
-\
-
-\f3 \cf13 if\cf9  (data == \cf14 'Motor2STOP'\cf9 ):              \cf12 #motor2 STOP
-\f4 \cf0 \
-
-\f3 \cf9 msg = \cf14 "Motor 2 Stop"
-\f4 \cf0 \
-
-\f3 \cf9 GPIO.output(\cf11 4\cf9 , GPIO.HIGH)
-\f4 \cf0 \
-
-\f3 \cf9 GPIO.output(\cf11 17\cf9 , GPIO.HIGH)
+\f3 \cf5 GPIO.output(\cf7 3\cf5 , GPIO.HIGH)
 \f4 \cf0 \
 \
 
-\f3 \cf13 if\cf9  (data == \cf14 'Motor2DOWN'\cf9 ):
+\f3 \cf9 if\cf5  (data == \cf10 'Motor1STOP'\cf5 ):        \cf8 #motor1 STOP
 \f4 \cf0 \
 
-\f3 \cf9 msg = \cf14 "Motor 2 Down"
+\f3 \cf5 msg = \cf10 "Motor 1 Stop"
 \f4 \cf0 \
 
-\f3 \cf9 GPIO.output(\cf11 4\cf9 , GPIO.HIGH)
+\f3 \cf5 GPIO.output(\cf7 2\cf5 , GPIO.HIGH)
 \f4 \cf0 \
 
-\f3 \cf9 GPIO.output(\cf11 17\cf9 , GPIO.LOW)
-\f4 \cf0 \
-\
-
-\f3 \cf13 if\cf9  (data == \cf14 'Motor3UP'\cf9 ):
-\f4 \cf0 \
-
-\f3 \cf9 msg = \cf14 "Motor 3 UP"
-\f4 \cf0 \
-
-\f3 \cf9 GPIO.output(\cf11 27\cf9 , GPIO.LOW)
-\f4 \cf0 \
-
-\f3 \cf9 GPIO.output(\cf11 22\cf9 , GPIO.HIGH)
+\f3 \cf5 GPIO.output(\cf7 3\cf5 , GPIO.HIGH)
 \f4 \cf0 \
 \
 
-\f3 \cf13 if\cf9  (data == \cf14 'Motor3STOP'\cf9 ):              \cf12 #motor3 STOP
+\f3 \cf9 if\cf5  (data == \cf10 'Motor1DOWN'\cf5 ):        \cf8 #motor1 DOWN
 \f4 \cf0 \
 
-\f3 \cf9 msg = \cf14 "Motor 3 Stop"
+\f3 \cf5 msg = \cf10 "Motor 1 Down"
 \f4 \cf0 \
 
-\f3 \cf9 GPIO.output(\cf11 27\cf9 , GPIO.HIGH)
+\f3 \cf5 GPIO.output(\cf7 2\cf5 , GPIO.HIGH)
 \f4 \cf0 \
 
-\f3 \cf9 GPIO.output(\cf11 22\cf9 , GPIO.HIGH)
-\f4 \cf0 \
-\
-
-\f3 \cf13 if\cf9  (data == \cf14 'Motor3DOWN'\cf9 ):
-\f4 \cf0 \
-
-\f3 \cf9 msg = \cf14 "Motor 3 Down"
-\f4 \cf0 \
-
-\f3 \cf9 GPIO.output(\cf11 27\cf9 , GPIO.HIGH)
-\f4 \cf0 \
-
-\f3 \cf9 GPIO.output(\cf11 22\cf9 , GPIO.LOW)
+\f3 \cf5 GPIO.output(\cf7 3\cf5 , GPIO.LOW)
 \f4 \cf0 \
 \
 
-\f3 \cf13 if\cf9  (data == \cf14 'Motor4UP'\cf9 ):
+\f3 \cf9 if\cf5  (data == \cf10 'Motor2UP'\cf5 ):			\cf8 #motor2 UP
 \f4 \cf0 \
 
-\f3 \cf9 msg = \cf14 "Motor 4 UP"
+\f3 \cf5 msg = \cf10 "Motor 2 UP"
 \f4 \cf0 \
 
-\f3 \cf9 GPIO.output(\cf11 10\cf9 , GPIO.LOW)
+\f3 \cf5 GPIO.output(\cf7 4\cf5 , GPIO.LOW)
 \f4 \cf0 \
 
-\f3 \cf9 GPIO.output(\cf11 9\cf9 , GPIO.HIGH)
-\f4 \cf0 \
-\
-
-\f3 \cf13 if\cf9  (data == \cf14 'Motor4STOP'\cf9 ):              \cf12 #motor4 STOP
-\f4 \cf0 \
-
-\f3 \cf9 msg = \cf14 "Motor 4 Stop"
-\f4 \cf0 \
-
-\f3 \cf9 GPIO.output(\cf11 10\cf9 , GPIO.HIGH)
-\f4 \cf0 \
-
-\f3 \cf9 GPIO.output(\cf11 9\cf9 , GPIO.HIGH)
+\f3 \cf5 GPIO.output(\cf7 17\cf5 , GPIO.HIGH)
 \f4 \cf0 \
 \
 
-\f3 \cf13 if\cf9  (data == \cf14 'Motor4DOWN'\cf9 ):
+\f3 \cf9 if\cf5  (data == \cf10 'Motor2STOP'\cf5 ):              \cf8 #motor2 STOP
 \f4 \cf0 \
 
-\f3 \cf9 msg = \cf14 "Motor 4 Down"
+\f3 \cf5 msg = \cf10 "Motor 2 Stop"
 \f4 \cf0 \
 
-\f3 \cf9 GPIO.output(\cf11 10\cf9 , GPIO.HIGH)
+\f3 \cf5 GPIO.output(\cf7 4\cf5 , GPIO.HIGH)
 \f4 \cf0 \
 
-\f3 \cf9 GPIO.output(\cf11 9\cf9 , GPIO.LOW)
+\f3 \cf5 GPIO.output(\cf7 17\cf5 , GPIO.HIGH)
+\f4 \cf0 \
+\
+
+\f3 \cf9 if\cf5  (data == \cf10 'Motor2DOWN'\cf5 ):			\cf8 #motor2 DOWN
+\f4 \cf0 \
+
+\f3 \cf5 msg = \cf10 "Motor 2 Down"
+\f4 \cf0 \
+
+\f3 \cf5 GPIO.output(\cf7 4\cf5 , GPIO.HIGH)
+\f4 \cf0 \
+
+\f3 \cf5 GPIO.output(\cf7 17\cf5 , GPIO.LOW)
+\f4 \cf0 \
+\
+
+\f3 \cf9 if\cf5  (data == \cf10 'Motor3UP'\cf5 ):				\cf8 #motor3 UP
+\f4 \cf0 \
+
+\f3 \cf5 msg = \cf10 "Motor 3 UP"
+\f4 \cf0 \
+
+\f3 \cf5 GPIO.output(\cf7 27\cf5 , GPIO.LOW)
+\f4 \cf0 \
+
+\f3 \cf5 GPIO.output(\cf7 22\cf5 , GPIO.HIGH)
+\f4 \cf0 \
+\
+
+\f3 \cf9 if\cf5  (data == \cf10 'Motor3STOP'\cf5 ):              \cf8 #motor3 STOP
+\f4 \cf0 \
+
+\f3 \cf5 msg = \cf10 "Motor 3 Stop"
+\f4 \cf0 \
+
+\f3 \cf5 GPIO.output(\cf7 27\cf5 , GPIO.HIGH)
+\f4 \cf0 \
+
+\f3 \cf5 GPIO.output(\cf7 22\cf5 , GPIO.HIGH)
+\f4 \cf0 \
+\
+
+\f3 \cf9 if\cf5  (data == \cf10 'Motor3DOWN'\cf5 ):			\cf8 #motor3 DOWN
+\f4 \cf0 \
+
+\f3 \cf5 msg = \cf10 "Motor 3 Down"
+\f4 \cf0 \
+
+\f3 \cf5 GPIO.output(\cf7 27\cf5 , GPIO.HIGH)
+\f4 \cf0 \
+
+\f3 \cf5 GPIO.output(\cf7 22\cf5 , GPIO.LOW)
+\f4 \cf0 \
+\
+
+\f3 \cf9 if\cf5  (data == \cf10 'Motor4UP'\cf5 ):				\cf8 #motor4 UP
+\f4 \cf0 \
+
+\f3 \cf5 msg = \cf10 "Motor 4 UP"
+\f4 \cf0 \
+
+\f3 \cf5 GPIO.output(\cf7 10\cf5 , GPIO.LOW)
+\f4 \cf0 \
+
+\f3 \cf5 GPIO.output(\cf7 9\cf5 , GPIO.HIGH)
+\f4 \cf0 \
+\
+
+\f3 \cf9 if\cf5  (data == \cf10 'Motor4STOP'\cf5 ):              \cf8 #motor4 STOP
+\f4 \cf0 \
+
+\f3 \cf5 msg = \cf10 "Motor 4 Stop"
+\f4 \cf0 \
+
+\f3 \cf5 GPIO.output(\cf7 10\cf5 , GPIO.HIGH)
+\f4 \cf0 \
+
+\f3 \cf5 GPIO.output(\cf7 9\cf5 , GPIO.HIGH)
+\f4 \cf0 \
+\
+
+\f3 \cf9 if\cf5  (data == \cf10 'Motor4DOWN'\cf5 ):			\cf8 #motor4 DOWN
+\f4 \cf0 \
+
+\f3 \cf5 msg = \cf10 "Motor 4 Down"
+\f4 \cf0 \
+
+\f3 \cf5 GPIO.output(\cf7 10\cf5 , GPIO.HIGH)
+\f4 \cf0 \
+
+\f3 \cf5 GPIO.output(\cf7 9\cf5 , GPIO.LOW)
 \f4 \cf0 \
 \
 \
 
-\f3 \cf9 print msg
+\f3 \cf5 print msg
 \f4 \cf0 \
 \
 
-\f3 \cf9 factory = Factory()
+\f3 \cf5 factory = Factory()
 \f4 \cf0 \
 
-\f3 \cf9 factory.protocol = RaspberryLight
+\f3 \cf5 factory.protocol = RaspberryLight
 \f4 \cf0 \
 
-\f3 \cf9 factory.clients = []
+\f3 \cf5 factory.clients = []
 \f4 \cf0 \
 \
 
-\f3 \cf9 reactor.listenTCP(\cf11 7777\cf9 , factory)
+\f3 \cf5 reactor.listenTCP(\cf7 7777\cf5 , factory)
 \f4 \cf0 \
 
-\f3 \cf9 print \cf14 "RaspberryLight server started"
+\f3 \cf5 print \cf10 "RaspberryLight server started"
 \f4 \cf0 \
 
-\f3 \cf9 reactor.run()
-\f2\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\f3 \cf5 reactor.run()
+\f2\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
 \
 \pard\pardeftab720\partightenfactor0
 
@@ -315,38 +309,47 @@ sudo apt-get install python-twisted\
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\f1\fs24 \cf5 \cb6 \kerning1\expnd0\expndtw0 \CocoaLigature0 sudo nice -n 10 python /home/pi/iphoneserver.py
+\f1\fs24 \cf13 \cb14 \kerning1\expnd0\expndtw0 \CocoaLigature0 sudo nice -n 10 python /home/pi/iphoneserver.py
 \f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
 \CocoaLigature1 \
 \
 # ctrl+c to stop server\
-# after all tests we can sudo nano /etc/rc.local to start out server at boot\
+# after all tests we can >sudo nano /etc/rc.local to boot our server after restart\
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\f1\fs24 \cf15 \cb6 \kerning1\expnd0\expndtw0 \CocoaLigature0 #!/bin/sh -e\cf5 \
-\cf15 #\cf5 \
-\cf15 # rc.local\cf5 \
-\cf15 #\cf5 \
-\cf15 # This script is executed at the end of each multiuser runlevel.\cf5 \
-\cf15 # Make sure that the script will \cf16 "exit 0"\cf15  on success or any other\cf5 \
-\cf15 # value on error.\cf5 \
-\cf15 #\cf5 \
-\cf15 # In order to enable or disable this script just change the execution\cf5 \
-\cf15 # bits.\cf5 \
-\cf15 #\cf5 \
-\cf15 # By default this script does nothing.\cf5 \
+\f1\fs24 \cf15 \cb14 \kerning1\expnd0\expndtw0 \CocoaLigature0 #!/bin/sh -e\cf13 \
+\cf15 #\cf13 \
+\cf15 # rc.local\cf13 \
+\cf15 #\cf13 \
+\cf15 # This script is executed at the end of each multiuser runlevel.\cf13 \
+\cf15 # Make sure that the script will \cf16 "exit 0"\cf15  on success or any other\cf13 \
+\cf15 # value on error.\cf13 \
+\cf15 #\cf13 \
+\cf15 # In order to enable or disable this script just change the execution\cf13 \
+\cf15 # bits.\cf13 \
+\cf15 #\cf13 \
+\cf15 # By default this script does nothing.\cf13 \
 \
-\cf15 # Print the IP address\cf5 \
-_IP\cf17 =$(\cf5 hostname -I\cf17 )\cf5  \cf17 ||\cf5  true\
-\cf17 if\cf5  \cf17 [\cf5  \cf16 "$_IP"\cf5  \cf17 ];\cf5  \cf17 then\cf5 \
-  \cf18 printf\cf5  \cf16 "My IP address is %s\\n"\cf5  \cf16 "$_IP"\cf5 \
-\cf17 fi\cf5 \
-sudo nice \cf17 -n\cf5  10 python /home/pi/iphoneserver.py \cf17 &\cf5 \
-\cf17 exit\cf5  0\
+\cf15 # Print the IP address\cf13 \
+_IP\cf17 =$(\cf13 hostname -I\cf17 )\cf13  \cf17 ||\cf13  true\
+\cf17 if\cf13  \cf17 [\cf13  \cf16 "$_IP"\cf13  \cf17 ];\cf13  \cf17 then\cf13 \
+  \cf18 printf\cf13  \cf16 "My IP address is %s\\n"\cf13  \cf16 "$_IP"\cf13 \
+\cf17 fi\cf13 \
+sudo nice \cf17 -n\cf13  10 python /home/pi/iphoneserver.py \cf17 &\cf13 \
+\cf17 exit\cf13  0\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
 \CocoaLigature1 \
 \
-# after all tests we can sudo nano /etc/rc.local to start out server at boot}
+# and finaly\
+\
+>sudo reboot\
+\
+\
+\
+##########   IOS APPLICATION CODE   ##########\
+\
+\
+}
