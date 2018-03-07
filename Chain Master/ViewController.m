@@ -22,6 +22,7 @@ typedef NS_ENUM(NSUInteger, CMMotorID) {
 };
 
 @interface ViewController ()
+
 @property (weak, nonatomic) IBOutlet UIButton *goButton;
 @property (strong, atomic) NSMutableDictionary *commands;
 
@@ -108,21 +109,22 @@ typedef NS_ENUM(NSUInteger, CMMotorID) {
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark connection
 - (void)initNetworkCommunication {
-    CFReadStreamRef readStream;
-    CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"192.168.0.199", 7777, &readStream, &writeStream);
-    _inputStream = (NSInputStream *)CFBridgingRelease(readStream);
-    _outputStream = (NSOutputStream *)CFBridgingRelease(writeStream);
-    
-    [_inputStream setDelegate:self];
-    [_outputStream setDelegate:self];
-    
-    [_inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [_outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    
-    [_inputStream open];
-    [_outputStream open];
+  CFReadStreamRef readStream;
+  CFWriteStreamRef writeStream;
+  CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"192.168.0.199", 7777, &readStream, &writeStream);
+  _inputStream = (NSInputStream *)CFBridgingRelease(readStream);
+  _outputStream = (NSOutputStream *)CFBridgingRelease(writeStream);
+  
+  [_inputStream setDelegate:self];
+  [_outputStream setDelegate:self];
+  
+  [_inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+  [_outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+  
+  [_inputStream open];
+  [_outputStream open];
 }
 
 - (IBAction)ToggleLight:(id)sender {
