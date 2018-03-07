@@ -90,9 +90,9 @@ typedef NS_ENUM(NSUInteger, CMMotorID) {
     
     self.commands = [NSMutableDictionary dictionaryWithDictionary:@{
                                                                     [ViewController stringForMotorID:CMMotorID1]: stopCommand,
-                                                                    [ViewController stringForMotorID:CMMotorID1]: stopCommand,
-                                                                    [ViewController stringForMotorID:CMMotorID1]: stopCommand,
-                                                                    [ViewController stringForMotorID:CMMotorID1]: stopCommand,
+                                                                    [ViewController stringForMotorID:CMMotorID2]: stopCommand,
+                                                                    [ViewController stringForMotorID:CMMotorID3]: stopCommand,
+                                                                    [ViewController stringForMotorID:CMMotorID4]: stopCommand,
                                                                     }];
     
     allStopDict = self.commands.copy;
