@@ -27,7 +27,9 @@ typedef NS_ENUM(NSUInteger, CMMotorID) {
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    NSDictionary* allStopDict;
+}
 
 + (NSString*) stringForCommand:(CMMotorCommand)command {
     NSString *string = @"STOP";
@@ -92,6 +94,8 @@ typedef NS_ENUM(NSUInteger, CMMotorID) {
                                                                     [ViewController stringForMotorID:CMMotorID1]: stopCommand,
                                                                     [ViewController stringForMotorID:CMMotorID1]: stopCommand,
                                                                     }];
+    
+    allStopDict = self.commands.copy;
 }
 
 
@@ -138,6 +142,16 @@ typedef NS_ENUM(NSUInteger, CMMotorID) {
 }
 
 - (IBAction)goButtonPressed:(id)sender {
+    for (NSString *key in allStopDict) {
+        NSString *commandValue = allStopDict[key];
+        
+        [self sendCommand:commandValue toMotor:key];
+    };
+    
+    NSLog(@"Stop all motors!");
+}
+
+- (IBAction)goPressed:(id)sender {
     NSLog(@"Sending command to control unit...");
     
     for (NSString *key in _commands) {
@@ -148,6 +162,11 @@ typedef NS_ENUM(NSUInteger, CMMotorID) {
     
     NSLog(@"Commands were sent!");
 }
+
+- (IBAction)goUnpressed:(id)sender {
+    [self goButtonPressed:self];
+}
+
 
 @end
 
