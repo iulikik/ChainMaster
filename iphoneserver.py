@@ -25,70 +25,68 @@ print "connection lost ", self.factory.clients
 self.factory.clients.remove(self)
 
 def dataReceived(self, data):
-msg = ""
 
-if (data == 'Motor1UP'):        #motor1 UP
-msg = "Motor 1 UP"
+#motor1 UP
+if (data == 'Motor1UP'):
 GPIO.output(2, GPIO.LOW)
 GPIO.output(3, GPIO.HIGH)
 
-if (data == 'Motor1STOP'):        #motor1 STOP
-msg = "Motor 1 Stop"
+#motor1 STOP
+if (data == 'Motor1STOP'):
 GPIO.output(2, GPIO.HIGH)
 GPIO.output(3, GPIO.HIGH)
 
-if (data == 'Motor1DOWN'):        #motor1 DOWN
-msg = "Motor 1 Down"
+#motor1 DOWN
+if (data == 'Motor1DOWN'):
 GPIO.output(2, GPIO.HIGH)
 GPIO.output(3, GPIO.LOW)
 
+#motor2 UP
 if (data == 'Motor2UP'):
-msg = "Motor 2 UP"
 GPIO.output(4, GPIO.LOW)
 GPIO.output(17, GPIO.HIGH)
 
-if (data == 'Motor2STOP'):              #motor2 STOP
-msg = "Motor 2 Stop"
+#motor2 STOP
+if (data == 'Motor2STOP'):
 GPIO.output(4, GPIO.HIGH)
 GPIO.output(17, GPIO.HIGH)
 
+#motor2 DOWN
 if (data == 'Motor2DOWN'):
-msg = "Motor 2 Down"
 GPIO.output(4, GPIO.HIGH)
 GPIO.output(17, GPIO.LOW)
 
+#motor3 UP
 if (data == 'Motor3UP'):
-msg = "Motor 3 UP"
 GPIO.output(27, GPIO.LOW)
 GPIO.output(22, GPIO.HIGH)
 
-if (data == 'Motor3STOP'):              #motor3 STOP
-msg = "Motor 3 Stop"
+#motor3 STOP
+if (data == 'Motor3STOP'):
 GPIO.output(27, GPIO.HIGH)
 GPIO.output(22, GPIO.HIGH)
 
+#motor3 DOWN
 if (data == 'Motor3DOWN'):
-msg = "Motor 3 Down"
 GPIO.output(27, GPIO.HIGH)
 GPIO.output(22, GPIO.LOW)
 
+#motor4 UP
 if (data == 'Motor4UP'):
-msg = "Motor 4 UP"
 GPIO.output(10, GPIO.LOW)
 GPIO.output(9, GPIO.HIGH)
 
-if (data == 'Motor4STOP'):              #motor4 STOP
-msg = "Motor 4 Stop"
+#motor4 STOP
+if (data == 'Motor4STOP'):
 GPIO.output(10, GPIO.HIGH)
 GPIO.output(9, GPIO.HIGH)
 
+#motor4 DOWN
 if (data == 'Motor4DOWN'):
-msg = "Motor 4 Down"
 GPIO.output(10, GPIO.HIGH)
 GPIO.output(9, GPIO.LOW)
 
-
-print msg
+print data
 
 factory = Factory()
 factory.protocol = RaspberryLight
