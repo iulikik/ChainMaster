@@ -3,11 +3,15 @@
 
 
 @interface ViewController ()
+
 @property (weak, nonatomic) IBOutlet UIButton *goButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *seg1;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *seg2;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *seg3;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *seg4;
+
+@property (nonatomic)  UIGestureRecognizerState gestureState;
+
 @end
 
 @implementation ViewController
@@ -15,7 +19,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self initNetworkCommunication];
+//    [self initNetworkCommunication];
+  
+    UILongPressGestureRecognizer *longPressOnButton = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressOnButton:)];
+    longPressOnButton.delegate = self;
+    _goButton.userInteractionEnabled = YES;
+    [_goButton addGestureRecognizer:longPressOnButton];
+}
+
+- (void)longPressOnButton:(UILongPressGestureRecognizer*)gesture {
+  _gestureState = gesture.state;
+  [self start];
+
+}
+
+- (void)start {
+  while (_gestureState != UIGestureRecognizerStateEnded) {
+  NSLog(@"start %ld", (long)_gestureState);
+    //    [self sendMovementActionToController:_seg1];
+    //    [self sendMovementActionToController:_seg2];
+    //    [self sendMovementActionToController:_seg3];
+    //    [self sendMovementActionToController:_seg4];
+ }
+  //  // When you stop touch the button
+  //  if (gesture.state == UIGestureRecognizerStateEnded) {
+  //    NSLog(@"stop");
+  //    [self writeOutputStreamWithTag:_seg1.tag command:@"STOP"];
+  //    [self writeOutputStreamWithTag:_seg2.tag command:@"STOP"];
+  //    [self writeOutputStreamWithTag:_seg3.tag command:@"STOP"];
+  //    [self writeOutputStreamWithTag:_seg4.tag command:@"STOP"];
+  //  }
 }
 
 - (void)initNetworkCommunication {
@@ -52,30 +85,22 @@
     [_outputStream write:[data bytes] maxLength:[data length]];
     NSLog(@"%@", response);
 }
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)eventt {
-    // TODO we should collect all data from seg controller when the touch was initiated
-}
-
+//
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)eventt {
+//    // TODO we should collect all data from seg controller when the touch was initiated
+//}
+//
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint touchLocation = [touch locationInView:self.view];
-    
+
     if (CGRectContainsPoint(_goButton.frame, touchLocation)) {
         //this should be called continously while keeping go button pressed
         NSLog(@" touched");
-        [self sendMovementActionToController:_seg1];
-        [self sendMovementActionToController:_seg2];
-        [self sendMovementActionToController:_seg3];
-        [self sendMovementActionToController:_seg4];
     }
 }
-
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self writeOutputStreamWithTag:_seg1.tag command:@"STOP"];
-    [self writeOutputStreamWithTag:_seg2.tag command:@"STOP"];
-    [self writeOutputStreamWithTag:_seg3.tag command:@"STOP"];
-    [self writeOutputStreamWithTag:_seg4.tag command:@"STOP"];
-}
+//
+//- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//}
 
 @end
