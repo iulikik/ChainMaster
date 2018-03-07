@@ -145,6 +145,7 @@ typedef NS_ENUM(NSUInteger, CMMotorID) {
     [_outputStream write:[data bytes] maxLength:[data length]];
     
     NSLog(@"%@", commandToSend);
+    usleep(10000);
 }
 
 - (IBAction)goButtonPressed:(id)sender {
