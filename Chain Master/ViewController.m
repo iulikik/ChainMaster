@@ -103,7 +103,7 @@ typedef NS_ENUM(NSUInteger, CMMotorID) {
 - (void)initNetworkCommunication {
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"192.168.0.39", 7777, &readStream, &writeStream);
+    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"192.168.0.199", 7777, &readStream, &writeStream);
     _inputStream = (NSInputStream *)CFBridgingRelease(readStream);
     _outputStream = (NSOutputStream *)CFBridgingRelease(writeStream);
     
