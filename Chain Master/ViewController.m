@@ -95,13 +95,17 @@ typedef NS_ENUM(NSUInteger, CMMotorID) {
                                                                     [ViewController stringForMotorID:CMMotorID4]: stopCommand,
                                                                     }];
     
-    allStopDict = self.commands.copy;
+    allStopDict = @{
+                    [ViewController stringForMotorID:CMMotorID1]: stopCommand,
+                    [ViewController stringForMotorID:CMMotorID2]: stopCommand,
+                    [ViewController stringForMotorID:CMMotorID3]: stopCommand,
+                    [ViewController stringForMotorID:CMMotorID4]: stopCommand,
+                    };
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)initNetworkCommunication {
@@ -133,12 +137,12 @@ typedef NS_ENUM(NSUInteger, CMMotorID) {
 }
 
 - (void)sendCommand:(NSString*)command toMotor:(NSString*)motorID {
-    NSString *response  = [NSString stringWithFormat:@"%@%@", motorID , command];
+    NSString *commandToSend  = [NSString stringWithFormat:@"%@%@", motorID , command];
     
-    NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+    NSData *data = [[NSData alloc] initWithData:[commandToSend dataUsingEncoding:NSASCIIStringEncoding]];
     [_outputStream write:[data bytes] maxLength:[data length]];
     
-    NSLog(@"%@", response);
+    NSLog(@"%@", commandToSend);
 }
 
 - (IBAction)goButtonPressed:(id)sender {
@@ -147,20 +151,15 @@ typedef NS_ENUM(NSUInteger, CMMotorID) {
         
         [self sendCommand:commandValue toMotor:key];
     };
-    
-    NSLog(@"Stop all motors!");
 }
 
 - (IBAction)goPressed:(id)sender {
-    NSLog(@"Sending command to control unit...");
     
-    for (NSString *key in _commands) {
-        NSString *commandValue = _commands[key];
+    for (NSString *key in self.commands) {
+        NSString *commandValue = self.commands[key];
         
         [self sendCommand:commandValue toMotor:key];
     };
-    
-    NSLog(@"Commands were sent!");
 }
 
 - (IBAction)goUnpressed:(id)sender {
