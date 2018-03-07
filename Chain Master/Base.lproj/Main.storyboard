@@ -22,6 +22,10 @@
                                 <rect key="frame" x="164" y="275" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="GO"/>
+                                <connections>
+                                    <action selector="theTouchDown:" destination="BYZ-38-t0r" eventType="touchDown" id="xMx-ih-ZgH"/>
+                                    <action selector="theTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ifB-Ju-BES"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="CDw-Xt-fzd">
                                 <rect key="frame" x="100" y="86" width="174" height="29"/>
