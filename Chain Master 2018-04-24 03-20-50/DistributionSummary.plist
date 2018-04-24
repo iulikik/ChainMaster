@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Chain Master.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>7D13E7A2A719C9661BCB4FC409013679941C20A5</string>
+				<key>dateExpires</key>
+				<string>1/20/19</string>
+				<key>type</key>
+				<string>iOS Development</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>9V86KZMKY5.swedish-penises-inc..Chain-Master</string>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>9V86KZMKY5.swedish-penises-inc..Chain-Master</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>Chain Master.app</string>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>9V86KZMKY5</string>
+				<key>name</key>
+				<string>Miller Isaac (Personal Team)</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
