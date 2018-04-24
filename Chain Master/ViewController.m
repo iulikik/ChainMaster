@@ -18,7 +18,11 @@ typedef NS_ENUM(NSUInteger, CMMotorID) {
     CMMotorID1 = 1,
     CMMotorID2 = 2,
     CMMotorID3 = 3,
-    CMMotorID4 = 4
+    CMMotorID4 = 4,
+    CMMotorID5 = 5,
+    CMMotorID6 = 6,
+    CMMotorID7 = 7,
+    CMMotorID8 = 8
 };
 
 @interface ViewController ()
@@ -75,6 +79,22 @@ typedef NS_ENUM(NSUInteger, CMMotorID) {
             string = @"Motor4";
             break;
             
+        case CMMotorID5:
+            string = @"Motor5";
+            break;
+            
+        case CMMotorID6:
+            string = @"Motor6";
+            break;
+            
+        case CMMotorID7:
+            string = @"Motor7";
+            break;
+            
+        case CMMotorID8:
+            string = @"Motor8";
+            break;
+            
         default:
             break;
     }
@@ -101,6 +121,10 @@ typedef NS_ENUM(NSUInteger, CMMotorID) {
                     [ViewController stringForMotorID:CMMotorID2]: stopCommand,
                     [ViewController stringForMotorID:CMMotorID3]: stopCommand,
                     [ViewController stringForMotorID:CMMotorID4]: stopCommand,
+                    [ViewController stringForMotorID:CMMotorID5]: stopCommand,
+                    [ViewController stringForMotorID:CMMotorID6]: stopCommand,
+                    [ViewController stringForMotorID:CMMotorID7]: stopCommand,
+                    [ViewController stringForMotorID:CMMotorID8]: stopCommand,
                     };
 }
 
