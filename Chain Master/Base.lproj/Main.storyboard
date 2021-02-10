@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,12 +13,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jw4-gZ-Gzv">
-                                <rect key="frame" x="164" y="451" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jw4-gZ-Gzv">
+                                <rect key="frame" x="192" y="530" width="30" height="30"/>
                                 <state key="normal" title="GO"/>
                                 <connections>
                                     <action selector="goButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JRP-ON-zas"/>
@@ -28,9 +25,8 @@
                                     <action selector="goUnpressed:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="acf-qy-0FW"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="CDw-Xt-fzd" userLabel="CMMotorID1">
-                                <rect key="frame" x="100" y="86" width="174" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="CDw-Xt-fzd" userLabel="CMMotorID1">
+                                <rect key="frame" x="125" y="110" width="164" height="32"/>
                                 <segments>
                                     <segment title="UP"/>
                                     <segment title="Stop"/>
@@ -40,9 +36,8 @@
                                     <action selector="ToggleLight:" destination="BYZ-38-t0r" eventType="valueChanged" id="oq0-cK-QRA"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="ATQ-zS-5E6" userLabel="CMMotorID2">
-                                <rect key="frame" x="100" y="122" width="174" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" tag="2" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="ATQ-zS-5E6" userLabel="CMMotorID2">
+                                <rect key="frame" x="125" y="150" width="164" height="32"/>
                                 <segments>
                                     <segment title="UP"/>
                                     <segment title="Stop"/>
@@ -52,9 +47,8 @@
                                     <action selector="ToggleLight:" destination="BYZ-38-t0r" eventType="valueChanged" id="CxX-fP-Vlv"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="isK-iK-0Br" userLabel="CMMotorID3">
-                                <rect key="frame" x="100" y="158" width="174" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" tag="3" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="isK-iK-0Br" userLabel="CMMotorID3">
+                                <rect key="frame" x="125" y="190" width="164" height="32"/>
                                 <segments>
                                     <segment title="UP"/>
                                     <segment title="Stop"/>
@@ -64,21 +58,19 @@
                                     <action selector="ToggleLight:" destination="BYZ-38-t0r" eventType="valueChanged" id="EWl-RW-OqM"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="okl-uj-eyX" userLabel="CMMotorID4">
-                                <rect key="frame" x="100" y="194" width="174" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" tag="4" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="BBO-DJ-mFh" userLabel="CMMotorID4">
+                                <rect key="frame" x="125" y="230" width="164" height="32"/>
                                 <segments>
                                     <segment title="UP"/>
                                     <segment title="Stop"/>
                                     <segment title="Down"/>
                                 </segments>
                                 <connections>
-                                    <action selector="ToggleLight:" destination="BYZ-38-t0r" eventType="valueChanged" id="C36-me-Ylk"/>
+                                    <action selector="ToggleLight:" destination="BYZ-38-t0r" eventType="valueChanged" id="WUY-6t-C8K"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qwr-41-HAh" userLabel="CMMotorID5">
-                                <rect key="frame" x="100" y="230" width="174" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" tag="5" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qwr-41-HAh" userLabel="CMMotorID5">
+                                <rect key="frame" x="125" y="300" width="164" height="32"/>
                                 <segments>
                                     <segment title="UP"/>
                                     <segment title="Stop"/>
@@ -88,9 +80,8 @@
                                     <action selector="ToggleLight:" destination="BYZ-38-t0r" eventType="valueChanged" id="UDp-fj-lEd"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="awp-aM-i42" userLabel="CMMotorID6">
-                                <rect key="frame" x="100" y="266" width="174" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" tag="6" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="awp-aM-i42" userLabel="CMMotorID6">
+                                <rect key="frame" x="125" y="340" width="164" height="32"/>
                                 <segments>
                                     <segment title="UP"/>
                                     <segment title="Stop"/>
@@ -100,9 +91,8 @@
                                     <action selector="ToggleLight:" destination="BYZ-38-t0r" eventType="valueChanged" id="Evh-l4-A3c"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Iea-ns-kOe" userLabel="CMMotorID7">
-                                <rect key="frame" x="100" y="302" width="174" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" tag="7" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Iea-ns-kOe" userLabel="CMMotorID7">
+                                <rect key="frame" x="125" y="380" width="164" height="32"/>
                                 <segments>
                                     <segment title="UP"/>
                                     <segment title="Stop"/>
@@ -112,9 +102,8 @@
                                     <action selector="ToggleLight:" destination="BYZ-38-t0r" eventType="valueChanged" id="0m1-SQ-BDI"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="PCg-SB-6X9" userLabel="CMMotorID8">
-                                <rect key="frame" x="100" y="338" width="174" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" tag="8" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="PCg-SB-6X9" userLabel="CMMotorID8">
+                                <rect key="frame" x="125" y="420" width="164" height="32"/>
                                 <segments>
                                     <segment title="UP"/>
                                     <segment title="Stop"/>
@@ -124,20 +113,48 @@
                                     <action selector="ToggleLight:" destination="BYZ-38-t0r" eventType="valueChanged" id="M0U-Hq-BxH"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Motor Control" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Man-bD-873">
-                                <rect key="frame" x="119" y="40" width="137" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motor Control" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Man-bD-873">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="BFC-A3-RBg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Chain_Master_Logo_long" translatesAutoresizingMaskIntoConstraints="NO" id="ojD-6a-aM2">
-                                <rect key="frame" x="-2" y="450" width="378" height="202"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Chain_Master_Logo_long" translatesAutoresizingMaskIntoConstraints="NO" id="ojD-6a-aM2">
+                                <rect key="frame" x="4" y="568" width="410" height="269"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Man-bD-873" firstAttribute="centerX" secondItem="PCg-SB-6X9" secondAttribute="centerX" id="4Ze-MM-Rw7"/>
+                            <constraint firstItem="Qwr-41-HAh" firstAttribute="top" secondItem="BBO-DJ-mFh" secondAttribute="bottom" constant="39" id="5rz-Io-68R"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ATQ-zS-5E6" secondAttribute="trailing" symbolic="YES" id="Igt-bG-QQE"/>
+                            <constraint firstItem="Man-bD-873" firstAttribute="centerX" secondItem="awp-aM-i42" secondAttribute="centerX" id="LTE-9F-fUs"/>
+                            <constraint firstItem="CDw-Xt-fzd" firstAttribute="top" secondItem="Man-bD-873" secondAttribute="bottom" constant="10" id="NIA-GC-pom"/>
+                            <constraint firstItem="isK-iK-0Br" firstAttribute="top" secondItem="ATQ-zS-5E6" secondAttribute="bottom" constant="9" id="Oi7-HF-10h"/>
+                            <constraint firstItem="ATQ-zS-5E6" firstAttribute="top" secondItem="CDw-Xt-fzd" secondAttribute="bottom" constant="9" id="Wlj-bV-Dct"/>
+                            <constraint firstItem="Man-bD-873" firstAttribute="centerX" secondItem="Iea-ns-kOe" secondAttribute="centerX" id="Ypj-c4-wIh"/>
+                            <constraint firstItem="awp-aM-i42" firstAttribute="top" secondItem="Qwr-41-HAh" secondAttribute="bottom" constant="9" id="ZFG-DX-htn"/>
+                            <constraint firstItem="Man-bD-873" firstAttribute="centerX" secondItem="CDw-Xt-fzd" secondAttribute="centerX" id="aLq-DR-eW6"/>
+                            <constraint firstItem="Man-bD-873" firstAttribute="centerX" secondItem="Qwr-41-HAh" secondAttribute="centerX" id="b1R-aJ-ybh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ojD-6a-aM2" secondAttribute="bottom" constant="25" id="bHx-IM-DoT"/>
+                            <constraint firstItem="Man-bD-873" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eix-Cg-TZn"/>
+                            <constraint firstItem="Qwr-41-HAh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="300" id="f5M-7k-Bws"/>
+                            <constraint firstItem="Man-bD-873" firstAttribute="centerX" secondItem="BBO-DJ-mFh" secondAttribute="centerX" id="gFo-lb-931"/>
+                            <constraint firstItem="Man-bD-873" firstAttribute="centerX" secondItem="isK-iK-0Br" secondAttribute="centerX" id="n0p-iM-PO8"/>
+                            <constraint firstItem="ojD-6a-aM2" firstAttribute="top" secondItem="Jw4-gZ-Gzv" secondAttribute="bottom" constant="8" symbolic="YES" id="oFi-oD-8OQ"/>
+                            <constraint firstItem="ojD-6a-aM2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="oOK-7c-A2x"/>
+                            <constraint firstItem="Man-bD-873" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="r7v-EZ-3CB"/>
+                            <constraint firstItem="Jw4-gZ-Gzv" firstAttribute="top" secondItem="PCg-SB-6X9" secondAttribute="bottom" constant="79" id="uX3-4H-j7U"/>
+                            <constraint firstAttribute="trailing" secondItem="Man-bD-873" secondAttribute="trailing" id="vTL-ed-qQo"/>
+                            <constraint firstItem="Man-bD-873" firstAttribute="centerX" secondItem="Jw4-gZ-Gzv" secondAttribute="centerX" id="wpc-ok-o8y"/>
+                            <constraint firstItem="ATQ-zS-5E6" firstAttribute="leading" secondItem="isK-iK-0Br" secondAttribute="leading" id="xMg-tE-tyM"/>
+                            <constraint firstItem="PCg-SB-6X9" firstAttribute="top" secondItem="Iea-ns-kOe" secondAttribute="bottom" constant="9" id="zpy-5h-vnY"/>
+                            <constraint firstItem="Man-bD-873" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ojD-6a-aM2" secondAttribute="trailing" id="zsp-PN-u1R"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hFq-US-Jtz"/>
                     <connections>

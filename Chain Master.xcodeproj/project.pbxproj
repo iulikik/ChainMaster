@@ -11,10 +11,10 @@
 		49A79DA620224CE9004E873F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A79DA520224CE9004E873F /* ViewController.m */; };
 		49A79DA920224CE9004E873F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49A79DA720224CE9004E873F /* Main.storyboard */; };
 		49A79DAB20224CE9004E873F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A79DAA20224CE9004E873F /* Assets.xcassets */; };
-		49A79DAE20224CE9004E873F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49A79DAC20224CE9004E873F /* LaunchScreen.storyboard */; };
 		49A79DB120224CE9004E873F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A79DB020224CE9004E873F /* main.m */; };
 		49A79DBB20224CE9004E873F /* Chain_MasterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A79DBA20224CE9004E873F /* Chain_MasterTests.m */; };
 		49A79DC620224CE9004E873F /* Chain_MasterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A79DC520224CE9004E873F /* Chain_MasterUITests.m */; };
+		8BEBE79D25D4228200EBFA68 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BEBE79C25D4228200EBFA68 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +42,6 @@
 		49A79DA520224CE9004E873F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		49A79DA820224CE9004E873F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49A79DAA20224CE9004E873F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		49A79DAD20224CE9004E873F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49A79DAF20224CE9004E873F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49A79DB020224CE9004E873F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49A79DB620224CE9004E873F /* Chain MasterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chain MasterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +52,7 @@
 		49A79DC720224CE9004E873F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49E641CC20227A0100BD5611 /* iphoneserver.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = iphoneserver.py; sourceTree = "<group>"; };
 		49F1F69C204DE87E00CEF88A /* Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
+		8BEBE79C25D4228200EBFA68 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +109,9 @@
 				49A79DA220224CE9004E873F /* AppDelegate.m */,
 				49A79DA420224CE9004E873F /* ViewController.h */,
 				49A79DA520224CE9004E873F /* ViewController.m */,
+				8BEBE79C25D4228200EBFA68 /* Launch Screen.storyboard */,
 				49A79DA720224CE9004E873F /* Main.storyboard */,
 				49A79DAA20224CE9004E873F /* Assets.xcassets */,
-				49A79DAC20224CE9004E873F /* LaunchScreen.storyboard */,
 				49A79DAF20224CE9004E873F /* Info.plist */,
 				49A79DB020224CE9004E873F /* main.m */,
 			);
@@ -198,7 +198,7 @@
 		49A79D9620224CE9004E873F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Ik Moraru";
 				TargetAttributes = {
 					49A79D9D20224CE9004E873F = {
@@ -242,8 +242,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49A79DAE20224CE9004E873F /* LaunchScreen.storyboard in Resources */,
 				49A79DAB20224CE9004E873F /* Assets.xcassets in Resources */,
+				8BEBE79D25D4228200EBFA68 /* Launch Screen.storyboard in Resources */,
 				49A79DA920224CE9004E873F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,14 +315,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		49A79DAC20224CE9004E873F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				49A79DAD20224CE9004E873F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -351,6 +343,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -376,7 +369,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -408,6 +401,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -427,7 +421,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -445,7 +439,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "swedish-penises-inc..Chain-Master";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -460,7 +454,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "swedish-penises-inc..Chain-Master";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
