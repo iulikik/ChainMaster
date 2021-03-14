@@ -56,23 +56,23 @@ sudo apt-get install python-twisted
 This is how to make a hotspot from our raspberry pi (but don't forget to include our command in /etc/rc.local)
 
 ```bash
-git clone https://github.com/quangthanh010290/RPI3_HOTSPOTS.git
+git clone [https://github.com/quangthanh010290/RPI3_HOTSPOTS.git](https://github.com/quangthanh010290/RPI3_HOTSPOTS.git)
 sudo ./install.sh
 ```
-	•	Station mode: sudo sta [SSID] [password] - Connect to a network with specific ssid name and password ,example:
+* Station mode: sudo sta [SSID] [password] - Connect to a network with specific ssid name and password ,example:
 ```bash
 sudo sta mySSID  myPass
 ```
-	•	AP mode: sudo ap [SSID] [pass] - Create an wifi hotspot with specific ssid and pass ,example:
+* AP mode: sudo ap [SSID] [pass] - Create an wifi hotspot with specific ssid and pass ,example:
 ```bash
 sudo ap my_ssid 12345678
 ```
 
-Do not forget to make our raspberry pi have a static ip address.
+Do not forget to make our Raspberry Pi have a static ip address.
 
 —————————— this part is missing for now ——————————
 
-Lets create our script
+Lets create our script:
 
 ```bash
 sudo nano /home/pi/iphoneserver.py
