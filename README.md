@@ -2,6 +2,7 @@
 
 This is a guide on how to install server for motor_control.
 
+##SSH
 After burning the Raspberry Pi OS img to SD card, enable SSH by creating an empty file in the root of SD card, named ssh (without any extention). If you are on Mac, the follow command will do the trick:
 
 ```bash
@@ -43,6 +44,25 @@ ssh pi@192.168.0.136
 
 ```bash
 ssh-keygen -R "you server hostname or ip"
+```
+##UART
+
+For next method of connection using a FT232RL usb to TTL communicator we have to enable uart by adding this line in /boot/config.txt on SD card
+
+```python
+enable_uart=1
+```
+I was able to access the raspberry through serial port using an FT232RL usb to TTL communicator using this command:
+
+```bash
+sudo screen /dev/cu.usbserial-00000000 115200
+```
+
+##Server on Raspberry Pi
+
+We can start by enabling root access on our Raspberry Pi but this is not obligatory.
+```bash
+sudo passwd root
 ```
 
 So, now lets update and upgrade our Raspberry Pi and install additional libraries
