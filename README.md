@@ -56,7 +56,7 @@ sudo apt-get install python-twisted
 This is how to make a hotspot from our raspberry pi (but don't forget to include our command in /etc/rc.local)
 
 ```bash
-git clone [https://github.com/quangthanh010290/RPI3_HOTSPOTS.git](https://github.com/quangthanh010290/RPI3_HOTSPOTS.git)
+git clone https://github.com/quangthanh010290/RPI3_HOTSPOTS.git
 sudo ./install.sh
 ```
 * Station mode: sudo sta [SSID] [password] - Connect to a network with specific ssid name and password, example:
