@@ -80,7 +80,7 @@
                                     <action selector="ToggleLight:" destination="BYZ-38-t0r" eventType="valueChanged" id="UDp-fj-lEd"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" tag="6" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="awp-aM-i42" userLabel="CMMotorID6">
+                            <segmentedControl opaque="NO" tag="6" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="awp-aM-i42" userLabel="CMMotorID6">
                                 <rect key="frame" x="125" y="340" width="164" height="32"/>
                                 <segments>
                                     <segment title="UP"/>
@@ -102,7 +102,7 @@
                                     <action selector="ToggleLight:" destination="BYZ-38-t0r" eventType="valueChanged" id="0m1-SQ-BDI"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" tag="8" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="PCg-SB-6X9" userLabel="CMMotorID8">
+                            <segmentedControl opaque="NO" tag="8" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="PCg-SB-6X9" userLabel="CMMotorID8">
                                 <rect key="frame" x="125" y="420" width="164" height="32"/>
                                 <segments>
                                     <segment title="UP"/>

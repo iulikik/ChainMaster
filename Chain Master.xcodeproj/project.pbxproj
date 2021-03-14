@@ -46,10 +46,8 @@
 		49A79DB020224CE9004E873F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49A79DB620224CE9004E873F /* Chain MasterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chain MasterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A79DBA20224CE9004E873F /* Chain_MasterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chain_MasterTests.m; sourceTree = "<group>"; };
-		49A79DBC20224CE9004E873F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49A79DC120224CE9004E873F /* Chain MasterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chain MasterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A79DC520224CE9004E873F /* Chain_MasterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chain_MasterUITests.m; sourceTree = "<group>"; };
-		49A79DC720224CE9004E873F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49E641CC20227A0100BD5611 /* iphoneserver.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = iphoneserver.py; sourceTree = "<group>"; };
 		49F1F69C204DE87E00CEF88A /* Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
 		8BEBE79C25D4228200EBFA68 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				49A79DBA20224CE9004E873F /* Chain_MasterTests.m */,
-				49A79DBC20224CE9004E873F /* Info.plist */,
 			);
 			path = "Chain MasterTests";
 			sourceTree = "<group>";
@@ -131,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				49A79DC520224CE9004E873F /* Chain_MasterUITests.m */,
-				49A79DC720224CE9004E873F /* Info.plist */,
 			);
 			path = "Chain MasterUITests";
 			sourceTree = "<group>";
@@ -322,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -380,6 +377,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -432,7 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9V86KZMKY5;
 				INFOPLIST_FILE = "Chain Master/Info.plist";
@@ -447,7 +445,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9V86KZMKY5;
 				INFOPLIST_FILE = "Chain Master/Info.plist";
