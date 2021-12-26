@@ -67,8 +67,8 @@ sudo passwd root
 
 So, now lets update and upgrade our Raspberry Pi and install additional libraries
 ```bash
-sudo apt-get update
-sudo apt-get dist-upgrade
+sudo apt update
+sudo apt full-upgrade
 sudo apt-get rpi.gpio
 sudo apt-get install python-twisted
 ```
